@@ -1,0 +1,12 @@
+var moment = require("moment")
+
+function x(){
+    console.log('x')
+}
+
+console.log('Hello from JavaScript!')
+console.log(moment().startOf('day').fromNow())
+console.log(moment().endOf('day').fromNow())
+x()
+var name = "Bob", time = "today";
+console.log(`Hello ${name}, how are you ${time}?`);
