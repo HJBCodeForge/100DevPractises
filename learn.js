@@ -34,19 +34,37 @@
 //     .then(result => console.log("Succes: " + result))
 //     .catch(error => console.log("Error: " + error))
 
-function getTemperature(city) {
-    return new Promise((resolve) => {
-        setTimeout(() => {resolve("25°C in " + city)}, 1000)
-    })
-}
+// function getTemperature(city) {
+//     return new Promise((resolve) => {
+//         setTimeout(() => {resolve("25°C in " + city)}, 1000)
+//     })
+// }
 
-async function showTemperature(city) {
-    try {
-        let cityTemp = await getTemperature(city)
-        console.log(cityTemp)  
-    } catch(error) {
-        console.log("Error: " + error)
-    }
+// async function showTemperature(city) {
+//     try {
+//         let cityTemp = await getTemperature(city)
+//         console.log(cityTemp)  
+//     } catch(error) {
+//         console.log("Error: " + error)
+//     }
     
-}
-showTemperature("Montreal")
+// }
+// showTemperature("Montreal")
+
+        function getTemperature(city) {
+            return new Promise((resolve) => {
+                setTimeout(() => {resolve("25°C in " + city)}, 1000)
+            })
+        }
+        async function showAllTemperatures(cities){
+            try {
+                for(i=0; i < cities.length; i++) {
+                let temp = await getTemperature(cities[i])
+                console.log(temp)
+                }
+            } catch(error) {
+                console.log("Error: " + error)
+            }
+        }
+
+showAllTemperatures(["Montreal", "Toronto", "Vancouver"])
